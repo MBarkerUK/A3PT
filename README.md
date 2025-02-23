@@ -1,14 +1,16 @@
-# Bohemia Interactive Mod Manager (B.I.M.M)
+<div align="center">
 
-| Build Status | Security Scan | Last Update |
-|---|---|---|
-| [![Code Scan](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml) | [![Security Scan](https://img.shields.io/badge/Security-Scanned-brightgreen)](https://github.com/MBarkerUK/B.I.M.M/security) | [![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/B.I.M.M)](https://github.com/MBarkerUK/B.I.M.M/commits/main) |
+## Bohemia Interactive Mod Manager (B.I.M.M)
+
+[![Code Scan](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml)
+[![Security Scan](https://img.shields.io/badge/Security-Scanned-brightgreen)](https://github.com/MBarkerUK/B.I.M.M/security)
+[![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/B.I.M.M)](https://github.com/MBarkerUK/B.I.M.M/commits/main)
 
 <small>This repository is regularly scanned for security vulnerabilities using GitHub Actions, ensuring code quality and safety. The build status indicates the current state of the automated tests, and the last update badge shows recent development activity.</small>
 
-##
+### B.I.M.M (Bohemia Interactive Mod Manager) is a command-line utility designed to streamline the management of Arma 3 mod presets. It provides functionality to extract mod lists from preset files and merge multiple presets into a single, unified file
 
-## B.I.M.M (Bohemia Interactive Mod Manager) is a command-line utility designed to streamline the management of Arma 3 mod presets. It provides functionality to extract mod lists from preset files and merge multiple presets into a single, unified file
+</div>
 
 ## Features
 
@@ -77,8 +79,8 @@ This command merges two Arma 3 preset HTML files.
 
 ## Installation
 
-1. **Download:** Download the B.I.M.M scripts from [here](https://github.com/MBarkerUK/B.I.M.M/releases).
-2. **Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
+**Download:** Download the B.I.M.M scripts from [here](https://github.com/MBarkerUK/B.I.M.M/releases).
+**Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
 
 ```bash
 chmod +x BIMM-Extract.sh BIMM-Merge.sh
