@@ -24,6 +24,8 @@ jobs:
           powershell-version: '7.2'
 
       - name: PSScriptAnalyzer (PowerShell)
+        shell: pwsh
         run: |
           Install-Module -Name PSScriptAnalyzer -Force
           Invoke-ScriptAnalyzer -Path *.ps1 -Severity Warning
+
