@@ -16,7 +16,7 @@ jobs:
       - name: ShellCheck (Bash)
         run: |
           sudo apt-get install shellcheck
-          shellcheck BIMM-extract.sh BIMM-merge.sh
+          shellcheck *.sh
 
       - name: CodeQL (Bash)
         uses: github/codeql-action/init@v2
