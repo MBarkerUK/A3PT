@@ -1,35 +1,90 @@
 # Bohemia Interactive Mod Manager (B.I.M.M)
 
-B.I.M.M (Bohemia Interactive Mod Manager) is a command-line tool designed to help you manage and merge Arma 3 mod presets conveniently. It allows you to extract and list the mods within a mod preset file, as well as merge two mod preset files into a single file.
+B.I.M.M (Bohemia Interactive Mod Manager) is a command-line utility designed to streamline the management of Arma 3 mod presets.  It provides functionality to extract mod lists from preset files and merge multiple presets into a single, unified file.
 
 ## Features
 
-### Extracting Mods from Mod Preset
-You can use B.I.M.M to extract and list the mods contained within a mod preset HTML file. This is useful for quickly checking the contents of a preset without having to manually open the file.
+* **Mod List Extraction:** Quickly generate a list of mods from an Arma 3 preset HTML file, facilitating easy inspection and configuration.
+* **Preset Merging:** Combine multiple Arma 3 preset files into a consolidated file, simplifying the management of complex mod configurations.
 
-### Merging Mod Presets
-B.I.M.M provides a feature to merge two mod preset files into a single file. This is handy if you have multiple presets and want to combine them into one for convenience.
+## Usage
 
-## How to Use
+### Mod List Extraction
 
-1. **Extracting Mods from Mod Preset**
-   To extract and list mods from a mod preset HTML file, use the following command:
+#### Linux/macOS
+
+```bash
+./BIMM-Extract.sh
+```
+
+#### Windows
 
 ```powershell
-   .\BIMM-Windows.ps1
+.\BIMM-Extract.ps1
 ```
-This will display a list of mods present in the specified mod preset file.
 
-2. **Merging Mod Presets**
-   To merge two mod preset HTML files, use the following command:
+<details>
+<summary>Detailed Explanation</summary>
+
+This command extracts mod names from a given Arma 3 preset HTML file.
+
+1. **File Selection:** A file selection dialog will appear, prompting you to choose the desired preset HTML file.
+
+2. **Mod Name Extraction:** The script parses the HTML file, identifying and extracting the mod names.
+
+3. **Output:** The extracted mod list is saved to `ModList.txt` in the current working directory. The file contains a single line with mod names delimited by `;@`, suitable for direct use in configuration files.
+
+</details>
+
+### Preset Merging
+
+#### Linux/macOS
+
+```bash
+./BIMM-Merge.sh
+```
+
+#### Windows
 
 ```powershell
-.\BIMM-Merged-Windows.ps1
+.\BIMM-Merge.ps1
 ```
-This will create a new mod preset file that contains the combined list of mods from both input files.
+
+<details>
+<summary>Detailed Explanation</summary>
+
+This command merges two Arma 3 preset HTML files.
+
+1. **File Selection:** You will be prompted to select two preset HTML files.
+
+2. **Template Utilization:** The script uses a template file (`Arma 3 Preset Default.html`) to ensure proper formatting of the merged output.
+
+3. **Mod List Extraction & Combination:** The script extracts the mod lists from the selected files and combines them.
+
+4. **Template Population:** The combined mod list is inserted into the designated section of the template.
+
+5. **Output:** The merged preset is saved as `Arma 3 Preset Merged.html` in the current working directory.
+
+</details>
+
+## Installation
+
+1. **Download:** Download the B.I.M.M scripts from [here](https://github.com/MBarkerUK/B.I.M.M/releases).
+2. **Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
+
+```bash
+chmod +x BIMM-Extract.sh BIMM-Merge.sh
+```
+
+## Dependencies
+
+* **Linux/macOS:**  `zenity`, `grep`, `cut`, `sed`, `tr`, `cat` (Typically pre-installed on most distributions.)
+* **Windows:** PowerShell (Pre-installed on Windows).
 
 ## Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to submit a pull request or open an issue.
+
+Contributions are welcome! Please submit [pull requests](https://github.com/MBarkerUK/B.I.M.M/pulls) or [open issues](https://github.com/MBarkerUK/B.I.M.M/issues).
 
 ## License
+
 This project is licensed under the [GNU General Public License v3.0](LICENSE).
