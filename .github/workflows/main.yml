@@ -1,0 +1,49 @@
+name: Code Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: ShellCheck (Bash)
+        run: |
+          sudo apt-get install shellcheck
+          shellcheck *.sh
+
+      - name: CodeQL (Bash)
+        uses: github/codeql-action/init@v2
+        with:
+          language: bash
+
+      - name: CodeQL Analyze (Bash)
+        uses: github/codeql-action/analyze@v2
+        with:
+          language: bash
+
+      - name: Set up PowerShell
+        uses: Amadevus/pwsh-script@v2.0.3
+        with:
+          powershell-version: '7.2'
+
+      - name: PSScriptAnalyzer (PowerShell)
+        run: |
+          Install-Module -Name PSScriptAnalyzer -Force
+          Invoke-ScriptAnalyzer -Path *.ps1 -Severity Warning
+
+      - name: CodeQL (PowerShell)
+        uses: github/codeql-action/init@v2
+        with:
+          language: powershell
+
+      - name: CodeQL Analyze (PowerShell)
+        uses: github/codeql-action/analyze@v2
+        with:
+          language: powershell
