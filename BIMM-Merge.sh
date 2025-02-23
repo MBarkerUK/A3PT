@@ -37,9 +37,6 @@ if [ "$modListStartIndex" -ge "$modListEndIndex" ]; then
     exit 1
 fi
 
-# Extract the mod-list section from the template (preserving the start and end tags)
-modListSection="${templateContent:$modListStartIndex:$((modListEndIndex - modListStartIndex))}"
-
 # Initialize variable to hold the merged table contents
 mergedModList=""
 
