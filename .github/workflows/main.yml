@@ -29,7 +29,7 @@ jobs:
           language: bash
 
       - name: Set up PowerShell
-        uses: actions/setup-powershell@v2
+        uses: Amadevus/pwsh-script@v2.0.3
         with:
           powershell-version: '7.2'
 
