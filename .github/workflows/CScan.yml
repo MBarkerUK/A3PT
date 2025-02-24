@@ -1,4 +1,4 @@
-name: Code Scan
+name: Shell Script Security
 
 on:
   push:
