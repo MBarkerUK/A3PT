@@ -2,9 +2,9 @@
 
 ## Bohemia Interactive Mod Manager (B.I.M.M)
 
-[![Code Scan](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml)
-[![Security Scan](https://img.shields.io/badge/Security-Scanned-brightgreen)](https://github.com/MBarkerUK/B.I.M.M/security)
+[![Shell Script Security](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml)
 [![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/B.I.M.M)](https://github.com/MBarkerUK/B.I.M.M/commits/main)
+[![Codacy Security Scan](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/codacy.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/codacy.yml)
 
 <small>This repository is regularly scanned for security vulnerabilities using GitHub Actions, ensuring code quality and safety. The build status indicates the current state of the automated tests, and the last update badge shows recent development activity.</small>
 
