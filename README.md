@@ -2,7 +2,7 @@
 
 ## Bohemia Interactive Mod Manager (B.I.M.M)
 
-[![Code Scan](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/main.yml)
+[![Code Scan](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml)
 [![Security Scan](https://img.shields.io/badge/Security-Scanned-brightgreen)](https://github.com/MBarkerUK/B.I.M.M/security)
 [![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/B.I.M.M)](https://github.com/MBarkerUK/B.I.M.M/commits/main)
 
