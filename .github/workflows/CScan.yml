@@ -1,4 +1,4 @@
-name: Code Scan
+name: Shell Script Security
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
           shellcheck *.sh
 
       - name: Set up PowerShell
-        uses: Amadevus/pwsh-script@v2.0.3
+        uses: Amadevus/pwsh-script@97a8b211a5922816aa8a69ced41fa32f23477186 #v2.0.3
         with:
           powershell-version: '7.2'
 
