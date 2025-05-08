@@ -16,6 +16,7 @@
 
 * **Mod List Extraction:** Quickly generate a list of mods from an Arma 3 preset HTML file, facilitating easy inspection and configuration.
 * **Preset Merging:** Combine multiple Arma 3 preset files into a consolidated file, simplifying the management of complex mod configurations.
+* **Steam Collection Extraction:** Extract mods from Steam Workshop Collections and build a mod preset out of them for easy setup.
 
 ## Usage
 
