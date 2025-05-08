@@ -77,6 +77,37 @@ This command merges two Arma 3 preset HTML files.
 
 </details>
 
+## Steam Collection Extraction
+
+#### Linux/macOS
+```bash
+./BIMM-Steam-Extract.sh
+```
+
+#### Windows
+```powerShell
+PowerShell script for Steam Collection Extraction not yet available.
+```
+
+<details>
+<summary>Detailed Explanation</summary>
+
+This command extracts a mod list from a Steam Workshop Collection URL and merges it into an Arma 3 preset file.
+
+1. **Collection URL Input:** A dialog will appear, prompting you to enter the URL of the Steam Workshop Collection.
+
+2. **Output File Selection:** You will be prompted to choose where to save the generated Arma 3 preset HTML file.
+
+3. **Template Utilization:** The script uses a template file (Arma 3 Preset Default.html) to ensure proper formatting of the output preset.
+
+4. **Mod List Extraction & Combination:** The script parses the HTML from the Steam Workshop Collection URL, extracts the mod names and their Steam Workshop IDs, and combines them into a format suitable for the Arma 3 preset file.
+
+5. **Template Population:** The extracted and formatted mod list is inserted into the designated mod list section of the template.
+
+6. **Output:** The new preset containing the mods from the Steam Workshop Collection is saved to the location you specified.
+
+</details>
+
 ## Installation
 
 **Download:** Download the B.I.M.M scripts from [here](https://github.com/MBarkerUK/B.I.M.M/releases).
