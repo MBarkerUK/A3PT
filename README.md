@@ -125,6 +125,7 @@ chmod +x BIMM-Extract.sh BIMM-Merge.sh
 
 ## Releases
 
+* **v1.6.0 (08-05-2025):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.6.0)
 * **v1.5.0 (23-02-2025):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.5.0)
 * **v1.4.0 (11-08-2023):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.4.0)
 * **v1.3.1 (20-11-2021):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.3.1)
