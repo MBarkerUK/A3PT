@@ -111,8 +111,8 @@ This command extracts a mod list from a Steam Workshop Collection URL and merges
 
 ## Installation
 
-**Download:** Download the A3PT scripts from [here](https://github.com/MBarkerUK/A3PT/releases).
-**Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
+* **Download:** Download the A3PT scripts from [here](https://github.com/MBarkerUK/A3PT/releases).
+* **Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
 
 ```bash
 chmod +x A3PT-Extract.sh A3PT-Merge.sh
