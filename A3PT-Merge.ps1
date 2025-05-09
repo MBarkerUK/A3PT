@@ -40,11 +40,9 @@ foreach ($file in $modListFiles) {
     $modListContent = Get-Content -Path $file -Raw
     $tableStartTag = '<table>'
     $tableEndTag = '</table>'
-    
     $tableStartIndex = $modListContent.IndexOf($tableStartTag)
     $tableEndIndex = $modListContent.IndexOf($tableEndTag, $tableStartIndex) + $tableEndTag.Length
     $tableContent = $modListContent.Substring($tableStartIndex, $tableEndIndex - $tableStartIndex)
-    
     $modListSection += $tableContent
 }
 
