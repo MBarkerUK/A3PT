@@ -10,3 +10,7 @@
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+
+#Ignore vscode AI rules
+.github/copilot-instructions.md

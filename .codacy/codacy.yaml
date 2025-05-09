@@ -1,0 +1,4 @@
+runtimes:
+tools:
+    - semgrep@1.78.0
+    - trivy@0.59.1
