@@ -2,6 +2,7 @@
 
 ## Bohemia Interactive Mod Manager (B.I.M.M)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/501078a2884f4a32bed0675dc5da144c)](https://app.codacy.com/gh/MBarkerUK/B.I.M.M?utm_source=github.com&utm_medium=referral&utm_content=MBarkerUK/B.I.M.M&utm_campaign=Badge_Grade)
 [![Shell Script Security](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml)
 [![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/B.I.M.M)](https://github.com/MBarkerUK/B.I.M.M/commits/main)
 [![Codacy Security Scan](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/codacy.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/codacy.yml)
