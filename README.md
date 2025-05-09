@@ -1,14 +1,14 @@
 <div align="center">
 
-## Bohemia Interactive Mod Manager (B.I.M.M)
+## Arma 3 Preset Toolkit (A3PT)
 
-[![Shell Script Security](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/B.I.M.M/actions/workflows/CScan.yml)
-[![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/B.I.M.M)](https://github.com/MBarkerUK/B.I.M.M/commits/main)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ff18ca2d321c4fe09a81a6679d153c24)](https://app.codacy.com/gh/MBarkerUK/B.I.M.M/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Shell Script Security](https://github.com/MBarkerUK/A3PT/actions/workflows/CScan.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/A3PT/actions/workflows/CScan.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/A3PT)](https://github.com/MBarkerUK/A3PT/commits/main)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ff18ca2d321c4fe09a81a6679d153c24)](https://app.codacy.com/gh/MBarkerUK/A3PT/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 <small>This repository is regularly scanned for security vulnerabilities using GitHub Actions, ensuring code quality and safety. The build status indicates the current state of the automated tests, and the last update badge shows recent development activity.</small>
 
-### B.I.M.M (Bohemia Interactive Mod Manager) is a command-line utility designed to streamline the management of Arma 3 mod presets. It provides functionality to extract mod lists from preset files and merge multiple presets into a single, unified file
+### A3PT (Arma 3 Preset Toolkit) is a command-line utility designed to streamline the management of Arma 3 mod presets. It provides functionality to extract mod lists from preset files and merge multiple presets into a single, unified file
 
 </div>
 
@@ -111,7 +111,7 @@ This command extracts a mod list from a Steam Workshop Collection URL and merges
 
 ## Installation
 
-**Download:** Download the B.I.M.M scripts from [here](https://github.com/MBarkerUK/B.I.M.M/releases).
+**Download:** Download the A3PT scripts from [here](https://github.com/MBarkerUK/A3PT/releases).
 **Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
 
 ```bash
@@ -125,15 +125,15 @@ chmod +x BIMM-Extract.sh BIMM-Merge.sh
 
 ## Releases
 
-* **v1.6.0 (08-05-2025):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.6.0)
-* **v1.5.0 (23-02-2025):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.5.0)
-* **v1.4.0 (11-08-2023):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.4.0)
-* **v1.3.1 (20-11-2021):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.3.1)
-* **v1.3.0 (18-11-2021):** [Release Notes](https://github.com/MBarkerUK/B.I.M.M/releases/tag/1.3.0)
+* **v1.6.0 (08-05-2025):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.6.0)
+* **v1.5.0 (23-02-2025):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.5.0)
+* **v1.4.0 (11-08-2023):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.4.0)
+* **v1.3.1 (20-11-2021):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.3.1)
+* **v1.3.0 (18-11-2021):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.3.0)
 
 ## Contributing
 
-Contributions are welcome! Please submit [pull requests](https://github.com/MBarkerUK/B.I.M.M/pulls) or [open issues](https://github.com/MBarkerUK/B.I.M.M/issues).
+Contributions are welcome! Please submit [pull requests](https://github.com/MBarkerUK/A3PT/pulls) or [open issues](https://github.com/MBarkerUK/A3PT/issues).
 
 ## License
 
