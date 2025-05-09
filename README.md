@@ -25,13 +25,13 @@
 #### Linux/macOS
 
 ```bash
-./BIMM-Extract.sh
+./A3PT-Extract.sh
 ```
 
 #### Windows
 
 ```powershell
-.\BIMM-Extract.ps1
+.\A3PT-Extract.ps1
 ```
 
 <details>
@@ -52,13 +52,13 @@ This command extracts mod names from a given Arma 3 preset HTML file.
 #### Linux/macOS
 
 ```bash
-./BIMM-Merge.sh
+./A3PT-Merge.sh
 ```
 
 #### Windows
 
 ```powershell
-.\BIMM-Merge.ps1
+.\A3PT-Merge.ps1
 ```
 
 <details>
@@ -82,7 +82,7 @@ This command merges two Arma 3 preset HTML files.
 
 #### Linux/macOS
 ```bash
-./BIMM-Steam-Extract.sh
+./A3PT-Steam-Extract.sh
 ```
 
 #### Windows
@@ -115,7 +115,7 @@ This command extracts a mod list from a Steam Workshop Collection URL and merges
 **Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
 
 ```bash
-chmod +x BIMM-Extract.sh BIMM-Merge.sh
+chmod +x A3PT-Extract.sh A3PT-Merge.sh
 ```
 
 ## Dependencies
