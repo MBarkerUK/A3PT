@@ -17,8 +17,6 @@ function Save-FileDialog {
     return ""
 }
 
-# Requires the 'curl' command to be available (can be installed on Windows)
-
 # Prompt the user for the Steam Collection URL
 $collectionUrl = Read-Host -Prompt "Enter Steam Workshop Collection URL"
 
