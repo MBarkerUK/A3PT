@@ -86,8 +86,8 @@ This command merges two Arma 3 preset HTML files.
 ```
 
 #### Windows
-```powerShell
-PowerShell script for Steam Collection Extraction not yet available.
+```powershell
+.\A3PT-Steam-Extract.ps1
 ```
 
 <details>
