@@ -115,7 +115,13 @@ This command extracts a mod list from a Steam Workshop Collection URL and merges
 * **Make Executable (Linux/macOS):** For the Bash scripts, execute the following command:
 
 ```bash
-chmod +x A3PT-Extract.sh A3PT-Merge.sh
+chmod +x A3PT-Extract.sh A3PT-Merge.sh A3PT-Steam-Extract.sh
+```
+
+* **Make Executable (Windows):** For the PowerShell scripts, ensure you have the necessary permissions to execute scripts. You may need to set the execution policy:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ## Dependencies
@@ -125,6 +131,7 @@ chmod +x A3PT-Extract.sh A3PT-Merge.sh
 
 ## Releases
 
+* **v1.6.1 (11-05-2025):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.6.1)
 * **v1.6.0 (08-05-2025):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.6.0)
 * **v1.5.0 (23-02-2025):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.5.0)
 * **v1.4.0 (11-08-2023):** [Release Notes](https://github.com/MBarkerUK/A3PT/releases/tag/1.4.0)
