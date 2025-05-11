@@ -121,7 +121,7 @@ chmod +x A3PT-Extract.sh A3PT-Merge.sh A3PT-Steam-Extract.sh
 * **Make Executable (Windows):** For the PowerShell scripts, ensure you have the necessary permissions to execute scripts. You may need to set the execution policy:
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Set-ExecutionPolicy Unrestricted
 ```
 
 ## Dependencies
