@@ -54,35 +54,38 @@ jobs:
       # --- PSScriptAnalyzer for PowerShell scripts ---
       - name: Set up PowerShell
         uses: Amadevus/pwsh-script@97a8b211a5922816aa8a69ced41fa32f23477186 #v2.0.3
-        with:
-          powershell-version: '7.2'
-        # REMOVED: run: echo "PowerShell version 7.2 setup complete." # This line was the problem
+        # REMOVED: with: powershell-version: '7.2'  <-- This was the cause of the first warning
 
-      - name: Confirm PowerShell Setup # New step for the confirmation message
-        run: echo "PowerShell version 7.2 setup complete."
+      - name: Confirm PowerShell Setup
+        run: echo "PowerShell setup complete (using default runner version)." # Adjusted message
 
       - name: PSScriptAnalyzer (PowerShell)
         shell: pwsh
         run: |
           echo "Installing PSScriptAnalyzer module..."
-          Install-Module -Name PSScriptAnalyzer -Force -ErrorAction Stop # -ErrorAction Stop makes it fail if installation fails
+          Install-Module -Name PSScriptAnalyzer -Force -ErrorAction Stop
           echo "PSScriptAnalyzer installed."
 
           echo "Starting PSScriptAnalyzer scan for .ps1 files..."
           $outputFile = "psscriptanalyzer_output.txt"
 
-          # Check if any .ps1 files exist
           $ps1Files = Get-ChildItem -Recurse -Path . -Filter "*.ps1" | Select-Object -ExpandProperty FullName
           if ($ps1Files) {
-              # Run Invoke-ScriptAnalyzer and capture output
-              Invoke-ScriptAnalyzer -Path $ps1Files -Severity Warning | Out-File -FilePath $outputFile -Encoding Utf8 # Use Utf8 for broader compatibility
+              # Clear the output file before appending new results
+              Set-Content -Path $outputFile -Value "" -Encoding Utf8
+
+              # Iterate through each file and analyze it
+              foreach ($file in $ps1Files) {
+                  # Optional: Write-Host "Analyzing $($file)..."
+                  Invoke-ScriptAnalyzer -Path $file -Severity Warning | Out-File -FilePath $outputFile -Append -Encoding Utf8
+              }
 
               # Check if the output file is empty
               if ((Get-Item $outputFile).Length -gt 0) {
                   Write-Host "--- PSScriptAnalyzer Issues Found ---"
-                  Get-Content $outputFile # Print the captured output
+                  Get-Content $outputFile
                   Write-Host "------------------------------------"
-                  exit 1 # Fail the step if issues were found
+                  exit 1
               } else {
                   Write-Host "✅ PSScriptAnalyzer completed: No issues found in PowerShell scripts."
               }
