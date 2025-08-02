@@ -56,7 +56,10 @@ jobs:
         uses: Amadevus/pwsh-script@97a8b211a5922816aa8a69ced41fa32f23477186 #v2.0.3
         with:
           powershell-version: '7.2'
-        run: echo "PowerShell version 7.2 setup complete." # Add a confirmation message
+        # REMOVED: run: echo "PowerShell version 7.2 setup complete." # This line was the problem
+
+      - name: Confirm PowerShell Setup # New step for the confirmation message
+        run: echo "PowerShell version 7.2 setup complete."
 
       - name: PSScriptAnalyzer (PowerShell)
         shell: pwsh
