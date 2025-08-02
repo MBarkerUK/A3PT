@@ -16,19 +16,76 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: ShellCheck (Bash)
+      # --- ShellCheck for Bash scripts ---
+      - name: Setup ShellCheck (Bash)
         run: |
-          sudo apt-get install shellcheck
-          shellcheck *.sh
+          echo "Setting up ShellCheck..."
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          echo "ShellCheck setup complete."
 
+      - name: ShellCheck Scan (Bash)
+        shell: bash
+        run: |
+          echo "Starting ShellCheck scan for .sh files..."
+          output_file="shellcheck_output.txt"
+
+          # Check if any .sh files exist
+          if find . -type f -name "*.sh" -print0 | grep -q .; then
+            # Run shellcheck and redirect its output to the temporary file
+            find . -type f -name "*.sh" -print0 | xargs -0 shellcheck > "$output_file" 2>&1
+
+            # Check if the output file is empty
+            if [ -s "$output_file" ]; then
+              echo "--- ShellCheck Issues Found ---"
+              cat "$output_file" # Print the captured output
+              echo "------------------------------"
+              exit 1 # Fail the step if issues were found
+            else
+              echo "✅ ShellCheck completed: No issues found in shell scripts."
+            fi
+          else
+            echo "ℹ️ No shell scripts (.sh files) found to scan."
+          fi
+
+          # Clean up the temporary file
+          rm -f "$output_file"
+
+      # --- PSScriptAnalyzer for PowerShell scripts ---
       - name: Set up PowerShell
         uses: Amadevus/pwsh-script@97a8b211a5922816aa8a69ced41fa32f23477186 #v2.0.3
         with:
           powershell-version: '7.2'
+        run: echo "PowerShell version 7.2 setup complete." # Add a confirmation message
 
       - name: PSScriptAnalyzer (PowerShell)
         shell: pwsh
         run: |
-          Install-Module -Name PSScriptAnalyzer -Force
-          Invoke-ScriptAnalyzer -Path *.ps1 -Severity Warning
+          echo "Installing PSScriptAnalyzer module..."
+          Install-Module -Name PSScriptAnalyzer -Force -ErrorAction Stop # -ErrorAction Stop makes it fail if installation fails
+          echo "PSScriptAnalyzer installed."
 
+          echo "Starting PSScriptAnalyzer scan for .ps1 files..."
+          $outputFile = "psscriptanalyzer_output.txt"
+
+          # Check if any .ps1 files exist
+          $ps1Files = Get-ChildItem -Recurse -Path . -Filter "*.ps1" | Select-Object -ExpandProperty FullName
+          if ($ps1Files) {
+              # Run Invoke-ScriptAnalyzer and capture output
+              Invoke-ScriptAnalyzer -Path $ps1Files -Severity Warning | Out-File -FilePath $outputFile -Encoding Utf8 # Use Utf8 for broader compatibility
+
+              # Check if the output file is empty
+              if ((Get-Item $outputFile).Length -gt 0) {
+                  Write-Host "--- PSScriptAnalyzer Issues Found ---"
+                  Get-Content $outputFile # Print the captured output
+                  Write-Host "------------------------------------"
+                  exit 1 # Fail the step if issues were found
+              } else {
+                  Write-Host "✅ PSScriptAnalyzer completed: No issues found in PowerShell scripts."
+              }
+          } else {
+              Write-Host "ℹ️ No PowerShell scripts (.ps1 files) found to scan."
+          }
+
+          # Clean up the temporary file
+          Remove-Item -Path $outputFile -ErrorAction SilentlyContinue
