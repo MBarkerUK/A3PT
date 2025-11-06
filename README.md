@@ -2,7 +2,8 @@
 
 ## Arma 3 Preset Toolkit (A3PT)
 
-[![Shell Script Security](https://github.com/MBarkerUK/A3PT/actions/workflows/CScan.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/A3PT/actions/workflows/CScan.yml)
+[![Bash Script Security](https://github.com/MBarkerUK/A3PT/actions/workflows/bash.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/A3PT/actions/workflows/bash.yml)
+[![Powershell Script Security](https://github.com/MBarkerUK/A3PT/actions/workflows/powershell.yml/badge.svg?branch=main)](https://github.com/MBarkerUK/A3PT/actions/workflows/powershell.yml)
 [![Last Commit](https://img.shields.io/github/last-commit/MBarkerUK/A3PT)](https://github.com/MBarkerUK/A3PT/commits/main)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ff18ca2d321c4fe09a81a6679d153c24)](https://app.codacy.com/gh/MBarkerUK/A3PT/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
