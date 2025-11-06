@@ -1,0 +1,54 @@
+name: Shell Script Security (Bash)
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4 # Updated to v4 for latest features and security
+
+      - name: Setup ShellCheck
+        run: |
+          echo "Installing ShellCheck..."
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          echo "ShellCheck setup complete."
+
+      - name: ShellCheck Scan
+        shell: bash
+        run: |
+          echo "Starting ShellCheck scan for .sh files in the root directory starting with A3PT..."
+          # Create a temporary file to store the list of shell scripts
+          # Using mktemp for robust temporary file creation
+          file_list=$(mktemp)
+          # Find .sh files only in the root directory, starting with A3PT, and exclude dot-folders
+          find . -maxdepth 1 -type f -name "A3PT*.sh" -print0 > "$file_list"
+
+          # Check if any shell scripts were found
+          if [ -s "$file_list" ]; then
+            echo "--- ShellCheck Issues ---"
+            # Run shellcheck on the found files.
+            # xargs -0 reads null-separated arguments from stdin.
+            # Shellcheck will print issues to stdout/stderr and exit with a non-zero status if issues are found.
+            if xargs -0 shellcheck < "$file_list"; then
+              echo "ShellCheck completed: No issues found in shell scripts."
+            else
+              echo "ShellCheck completed: Issues found in shell scripts."
+              exit 1 # Fail the step if shellcheck found issues
+            fi
+            echo "-------------------------"
+          else
+            echo "No shell scripts (.sh files) found in the root directory starting with A3PT to scan."
+          fi
+
+          # Clean up the temporary file
+          rm -f "$file_list"

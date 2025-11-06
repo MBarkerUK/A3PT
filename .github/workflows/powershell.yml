@@ -1,0 +1,68 @@
+name: Shell Script Security (PowerShell)
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+permissions:
+  contents: read
+
+jobs:
+  psscriptanalyzer_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4 # Updated to v4 for latest features and security
+
+      - name: Install PowerShell Core
+        # This step ensures pwsh is available in the runner environment for 'act'
+        # GitHub-hosted runners usually have it pre-installed, but 'act' images might not.
+        run: |
+          echo "Installing PowerShell Core..."
+          sudo apt-get update
+          sudo apt-get install -y wget apt-transport-https software-properties-common
+          wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+          sudo dpkg -i packages-microsoft-prod.deb
+          sudo apt-get update
+          sudo apt-get install -y powershell
+          echo "PowerShell Core installed."
+        shell: bash # Use bash for this installation step
+
+      # --- PSScriptAnalyzer for PowerShell scripts ---
+      - name: PSScriptAnalyzer Scan
+        shell: pwsh
+        run: |
+          Write-Host "Installing PSScriptAnalyzer module..."
+          Install-Module -Name PSScriptAnalyzer -Force -ErrorAction Stop
+          Write-Host "PSScriptAnalyzer module installed."
+
+          Write-Host "Starting PSScriptAnalyzer scan for .ps1 files..."
+          
+          # Find all .ps1 files recursively
+          $ps1Files = Get-ChildItem -Recurse -Path . -Filter "*.ps1" | Select-Object -ExpandProperty FullName
+          if ($ps1Files) {
+              $analyzerOutput = @() # Initialize an array to hold all analyzer output
+
+              # Run the analysis and collect all findings
+              foreach ($file in $ps1Files) {
+                  $findings = Invoke-ScriptAnalyzer -Path $file -Severity Warning
+                  if ($findings) {
+                      $analyzerOutput += $findings
+                  }
+              }
+
+              # Check if any findings were collected
+              if ($analyzerOutput.Count -gt 0) {
+                  Write-Host "--- PSScriptAnalyzer Issues Found ---"
+                  $analyzerOutput | Format-List # Format for better readability in logs
+                  Write-Host "------------------------------------"
+                  exit 1
+              } else {
+                  Write-Host "PSScriptAnalyzer completed: No issues found in PowerShell scripts."
+              }
+          } else {
+              Write-Host "No PowerShell scripts (.ps1 files) found to scan."
+          }
