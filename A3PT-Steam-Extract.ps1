@@ -17,12 +17,33 @@ function Save-FileDialog {
     return ""
 }
 
+# --- Main Script Logic ---
+
+# Function to write information messages (replaces Write-Host for non-critical info)
+function Write-InformationMessage {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Message
+    )
+    # Using Write-Information, which can be suppressed or redirected.
+    Write-Information -MessageData $Message -InformationAction Continue
+}
+
+# Function to write warning messages
+function Write-WarningMessage {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Message
+    )
+    Write-Warning -Message $Message
+}
+
 # Prompt the user for the Steam Collection URL
 $collectionUrl = Read-Host -Prompt "Enter Steam Workshop Collection URL"
 
 # Check if the user provided a URL
 if ([string]::IsNullOrEmpty($collectionUrl)) {
-    Write-Host "No collection URL provided. Exiting."
+    Write-InformationMessage "No collection URL provided. Exiting." # Replaced Write-Host
     exit 1
 }
 
@@ -31,7 +52,7 @@ $outputFile = Save-FileDialog -Title "Save Modified Preset As" -InitialFileName 
 
 # Check if the user selected a file
 if ([string]::IsNullOrEmpty($outputFile)) {
-    Write-Host "No output file selected. Exiting."
+    Write-InformationMessage "No output file selected. Exiting." # Replaced Write-Host
     exit 1
 }
 
@@ -53,10 +74,11 @@ catch {
 
 # Extract mod names and links using regular expressions
 $modEntries = ""
-$matches = [regex]::Matches($collectionHtml, '(?s)<a href="(?<link>https:\/\/steamcommunity\.com\/sharedfiles\/filedetails\/\?id=\d+)"><div class="workshopItemTitle">(?<title>.*?)<\/div><\/a>')
+# Renamed $matches to $regexMatches to avoid conflict with automatic variable $matches
+$regexMatches = [regex]::Matches($collectionHtml, '(?s)<a href="(?<link>https:\/\/steamcommunity\.com\/sharedfiles\/filedetails\/\?id=\d+)"><div class="workshopItemTitle">(?<title>.*?)<\/div><\/a>')
 
-if ($matches) { # Check if there are any matches
-    foreach ($match in $matches) {
+if ($regexMatches.Count -gt 0) { # Use .Count for checking if matches exist
+    foreach ($match in $regexMatches) { # Iterate through $regexMatches
         $title = $match.Groups["title"].Value.Trim()
         $link = $match.Groups["link"].Value.Trim()
         if ($title -and $link) {
@@ -79,7 +101,7 @@ $modEntries
       </table>
 "@
 } else {
-    Write-Warning "No mods found in the Steam Workshop Collection."
+    Write-WarningMessage "No mods found in the Steam Workshop Collection." # Replaced Write-Warning
 }
 
 # Construct the replacement for the entire mod-list div
@@ -104,7 +126,7 @@ $newContent = $defaultPresetContent -replace '(<div class="mod-list">
 # Write the modified content to the output file
 try {
     $newContent | Out-File -FilePath $outputFile -Encoding UTF8
-    Write-Host "Successfully extracted mod list and saved to '$outputFile'."
+    Write-InformationMessage "Successfully extracted mod list and saved to '$outputFile'." # Replaced Write-Host
 }
 catch {
     Write-Error "Error writing to the output file: $($_.Exception.Message)"
