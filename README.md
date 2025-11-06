@@ -78,7 +78,7 @@ This command merges two Arma 3 preset HTML files.
 
 </details>
 
-## Steam Collection Extraction
+### Steam Collection Extraction
 
 #### Linux/macOS
 ```bash
@@ -106,6 +106,26 @@ This command extracts a mod list from a Steam Workshop Collection URL and merges
 5. **Template Population:** The extracted and formatted mod list is inserted into the designated mod list section of the template.
 
 6. **Output:** The new preset containing the mods from the Steam Workshop Collection is saved to the location you specified.
+
+</details>
+
+### Mod List Difference
+
+#### Linux/macOS
+```bash
+./A3PT-Diff.sh
+```
+
+<details>
+<summary>Detailed Explanation</summary>
+
+This command compares two Arma 3 preset HTML files and identifies mods that are unique to either file.
+
+1. **File Selection:** You will be prompted to select two preset HTML files.
+
+2. **Mod List Comparison:** The script extracts all mod entries from both selected files and then identifies which mod entries are present in one file but not the other.
+
+3. **Output:** The unique mod entries are displayed in the terminal, formatted with their Display Name, Mod ID, and Full Steam Workshop Link. The output is colorized for better readability, with alternating colors for each unique mod.
 
 </details>
 
